@@ -1,0 +1,347 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: AdihausDIN, Helvetica, Arial, sans-serif;
+}
+li {
+  list-style: none;
+}
+nav {
+  display: flex;
+
+  justify-content: space-evenly;
+  align-items: end;
+
+  /* position: fixed; */
+  right: 0;
+  left: 0;
+}
+.selected {
+  background-color: black;
+  color: white;
+}
+
+nav .logo img {
+  height: 80px;
+  flex: 20;
+}
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav .search {
+  position: relative;
+}
+nav .search input {
+  /* position: absolute; */
+  width: 100%;
+  background-color: #eceff1;
+  border: none;
+  padding: 0.4rem;
+}
+nav .search i {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+}
+nav .user {
+  /* border: 1px solid; */
+  display: flex;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+nav .user .menu i {
+  /* display: flex; */
+  padding-right: 20px;
+}
+nav .user .menu i {
+  /* display: flex; */
+  padding-right: 20px;
+}
+
+nav .user .cart i {
+  /* position: relative; */
+}
+nav .user .cart span {
+  /* position: absolute; */
+  background-color: red;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+header {
+  /* display: flex; */
+  position: relative;
+  /* margin-top: 84px; */
+  width: 100%;
+}
+header .video video {
+  width: 100%;
+  /* height: 650px; */
+}
+header .banner {
+  position: absolute;
+
+  bottom: 20%;
+  left: 10%;
+}
+header .banner .title {
+  color: white;
+  font-size: larger;
+}
+header .banner .button button {
+  margin-top: 20px;
+
+  padding: 15px;
+  color: black;
+  /* border: none; */
+  background-color: white;
+  box-shadow: 5px 5px white;
+}
+.selects {
+  margin-left: 50px;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+}
+.selects button {
+  padding: 15px;
+  font-size: larger;
+  font-weight: bolder;
+  border: 1px solid;
+
+  cursor: pointer;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px 50px 10px 50px;
+}
+.product-container .product-item {
+  height: 100%;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.product-container .product-item:hover .image .price {
+  cursor: pointer;
+  bottom: 10px;
+}
+
+.product-container .product-item .image {
+  width: 300px;
+  height: 100%;
+  position: relative;
+  margin-bottom: 10px;
+}
+.product-container .product-item .image .price {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  background-color: white;
+  padding: 5px;
+  transition: bottom 0.5s;
+}
+
+.product-container .product-item .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.middle {
+  display: flex;
+  position: relative;
+}
+.middle .image {
+  width: 100%;
+  /* height: 650px; */
+}
+.middle .image img {
+  width: 100%;
+}
+
+.middle .banner {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  font-size: larger;
+}
+.middle .banner button {
+  margin-top: 20px;
+  padding: 15px;
+  color: white;
+  border: none;
+  background-color: black;
+}
+/*  ==========================*/
+.slide-show {
+  padding: 0 200px;
+}
+.slide-show h1 {
+  padding: 40px 0;
+}
+.slide {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.slide-item {
+  width: 300px;
+}
+.slide-item .title {
+  line-height: 50px;
+}
+.slide-item .title p {
+  line-height: 20px;
+  font-size: smaller;
+  /* display: inline-block;
+  height: 20px; */
+}
+.slide .slide-item .image img {
+  /* height: 400px; */
+  width: 250px;
+}
+/* ========================= */
+
+.text-container {
+  background-color: #f5f5e5;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.text-container .text {
+  display: flex;
+  padding: 50px 100px;
+  gap: 30px;
+}
+.text-container .text p {
+  font-size: smaller;
+  line-height: 20px;
+}
+.text-container .text .left,
+.text-container .text .right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.text-container .text .left p,
+.text-container .text .right p {
+  font-size: large;
+}
+
+/* =================== */
+.slide2-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.slide2-container .slide2-item {
+  width: 300px;
+  line-height: 20px;
+}
+/*  */
+.discount-container {
+  background-color: #ede734;
+  /* text-align: center; */
+  padding: 50px 200px;
+}
+.discount-container .discount {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.discount-container .discount button {
+  padding: 15px;
+  color: white;
+  background-color: black;
+  border: none;
+  box-shadow: 5px 5px 1px;
+}
+/*  */
+
+/*  */
+footer {
+  display: flex;
+  flex-direction: column;
+}
+footer .columns {
+  display: flex;
+  padding: 30px 150px;
+  justify-content: center;
+  gap: 20px;
+}
+footer .columns .col h3 {
+  padding: 0 50px 10px 0;
+}
+footer .columns .col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 15px;
+}
+footer .columns .col li {
+  font-size: smaller;
+  line-height: 25px;
+}
+
+footer .policy {
+  display: flex;
+  background-color: #282c30;
+  padding: 30px 300px;
+  color: white;
+  gap: 30px;
+  font-size: smaller;
+  justify-content: center;
+}
+nav .user .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 200px;
+  height: 100px;
+  width: 300px;
+  right: 0;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#loginButton,
+#registerButton {
+  padding: 20px;
+  margin: 20px;
+  background-color: #282c30;
+
+  border: none;
+  border-radius: 4px;
+}
+#loginButton a,
+#registerButton a {
+  text-decoration: none;
+  color: white;
+}
+#logoutButton {
+  padding: 20px;
+  margin: 20px;
+  background-color: #282c30;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
