@@ -56,21 +56,22 @@ function autoslideshow() {
 render();
 autoslideshow();
 
-
 const checkLogin = JSON.parse(localStorage.getItem("checkLogin"));
-const users = JSON.parse(localStorage.getItem("users"))||[{
-  id:1,
-  email:"1",
-  password:"1",
-  cart:[]
-}];
+const users = JSON.parse(localStorage.getItem("users")) || [
+  {
+    id: 1,
+    email: "1",
+    password: "1",
+    cart: [],
+  },
+];
 localStorage.setItem("users", JSON.stringify(users));
 const products = JSON.parse(localStorage.getItem("products"));
-console.log(products);
+
 cartCheck();
 function addToCart(productId) {
   const products = JSON.parse(localStorage.getItem("products"));
-  console.log(products)
+
   if (checkLogin === null) {
     alert("Bạn phải đăng nhập để mua hàng.");
     return;
@@ -121,7 +122,6 @@ function cartCheck() {
       for (let j = 0; j < users[i].cart.length; j++) {
         cartQuantity += users[i].cart[j].quantity;
       }
-      break;
     }
   }
 
@@ -158,3 +158,9 @@ if (checkLogin) {
 function logOut() {
   localStorage.removeItem("checkLogin");
 }
+
+// for (let i = 0; i < users.length; i++) {
+//   if (users[i].id === checkLogin) {
+//     console.log(users[i].cart);
+//   }
+// }
