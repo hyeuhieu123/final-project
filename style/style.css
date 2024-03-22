@@ -16,8 +16,7 @@ nav {
   align-items: end;
 
   /* position: fixed; */
-  right: 0;
-  left: 0;
+  border-bottom: 1px solid;
 }
 .selected {
   background-color: black;
@@ -344,4 +343,57 @@ nav .user .dropdown {
   color: white;
   border: none;
   border-radius: 4px;
+}
+
+.cart-container {
+  display: flex;
+  padding: 100px;
+  justify-content: space-evenly;
+  border: 1px solid;
+}
+.cart-container .cart,
+.cart-container .bills {
+  display: flex;
+  flex-direction: column;
+}
+.cart-container .cart .cart-item {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+  border: 1px solid;
+}
+.cart-container .cart .cart-item .info {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+.cart-container .cart .cart-item .info .title {
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+}
+.cart-container .cart .cart-item .image {
+  height: 100%;
+}
+.cart-container .cart .cart-item .image img {
+  height: 200px;
+  object-fit: cover;
+}
+.cart-container .bills button {
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  font-size: larger;
+  border: none;
+}
+.cart-container .bills {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.cart-container .bills .product-price,
+.cart-container .bills .product-ship,
+.cart-container .bills .total {
+  display: flex;
+  justify-content: space-between;
 }

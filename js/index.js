@@ -130,35 +130,60 @@ function cartCheck() {
   } else {
     cartCheck.innerHTML = "GIỎ HÀNG CỦA BẠN TRỐNG";
   }
+  return cartQuantity;
 }
+console.log(cartCheck());
 // cartCheck();
 
-if (checkLogin) {
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].id === checkLogin) {
-      const loginElement = document.getElementById("login");
-      loginElement.innerHTML = `Hello ${users[i].name}
-                                  <button id="logoutButton">Đăng xuất</button>`;
-      const logoutButton = document.getElementById("logoutButton");
-      if (logoutButton) {
-        logoutButton.addEventListener("click", function () {
-          logOut();
-          window.location.reload();
-        });
-      }
-    }
-  }
-} else {
-  const loginElement = document.getElementById("login");
-  loginElement.innerHTML = `  
-        <button id="loginButton"><a href="./pages/login.html">Đăng nhập</a></button>
-        <button id="registerButton"><a href="./pages/register.html">Đăng ký</a></button>`;
-}
+// const loginElement = document.getElementById("login");
+// if (checkLogin) {
+//   for (let i = 0; i < users.length; i++) {
+//     if (users[i].id === checkLogin) {
+//       loginElement.innerHTML = `Hello ${users[i].name}
+//                                   <button id="logoutButton">Đăng xuất</button>`;
+//       const logoutButton = document.getElementById("logoutButton");
+//       if (logoutButton) {
+//         logoutButton.addEventListener("click", function () {
+//           logOut();
+//           window.location.reload();
+//         });
+//       }
+//     }
+//   }
+// } else {
+//   loginElement.innerHTML = `
+//         <button id="loginButton"><a href="./pages/login.html">Đăng nhập</a></button>
+//         <button id="registerButton"><a href="./pages/register.html">Đăng ký</a></button>`;
+// }
 
 function logOut() {
   localStorage.removeItem("checkLogin");
 }
 
+function userCheck() {
+  const loginElement = document.getElementById("login");
+  if (checkLogin) {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].id === checkLogin) {
+        loginElement.innerHTML = `Hello ${users[i].name}
+                                  <button id="logoutButton">Đăng xuất</button>`;
+        const logoutButton = document.getElementById("logoutButton");
+        if (logoutButton) {
+          logoutButton.addEventListener("click", function () {
+            logOut();
+            window.location.reload();
+          });
+        }
+      }
+    }
+  } else {
+    loginElement.innerHTML = `  
+        <button id="loginButton"><a href="./pages/login.html">Đăng nhập</a></button>
+        <button id="registerButton"><a href="./pages/register.html">Đăng ký</a></button>`;
+  }
+  cartCheck();
+}
+userCheck();
 // for (let i = 0; i < users.length; i++) {
 //   if (users[i].id === checkLogin) {
 //     console.log(users[i].cart);

@@ -56,12 +56,83 @@
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
           </div>
           <div class="dropdown-content">
-            <h1 id="cartCheck"></h1>
+            <h1>
+              Giỏ hàng của bạn <br />có:<span id="cartCheck"></span> sản phẩm
+            </h1>
           </div>
         </div>
       </div>
     </nav>
-    <script src="../js/productlist.js"></script>
-    <script src="../js/index.js"></script>
+
+    <!-- main -->
+    <div class="cart-container">
+      <div class="cart">
+        <h1>GIỎ HÀNG CỦA BẠN</h1>
+        <p>
+          TỔNG CỘNG(<span id="cartCheck"></span> các sản phẩm )
+          <b id="total"></b>
+        </p>
+        <div class="cart-item">
+          <div class="image">
+            <img src="../asset/images/arrival/11.jpg" alt="" />
+          </div>
+          <div class="info">
+            <div class="title">
+              <p>GIÀY HIKING TERRE FREE HIKER 2.0</p>
+              <p>5.000.000</p>
+            </div>
+            <b>MẶT HÀNG CÓ SẴN MỚI NHẤT</b>
+          </div>
+        </div>
+        <div class="cart-item">
+          <div class="image">
+            <img
+              src="https://assets.adidas.com/images/w_280,h_280,f_auto,q_auto:sensitive/78f84f63bed94691a9316fd96fc94820_9366/IE5115_580_IE5115_HM1.jpg.jpg?sh=364&strip=false&sw=364"
+              alt=""
+            />
+          </div>
+          <div class="info">
+            <div class="title">
+              <p>GIÀY HIKING TERRE FREE HIKER 2.0</p>
+              <p>5.000.000</p>
+            </div>
+            <b>MẶT HÀNG CÓ SẴN MỚI NHẤT</b>
+          </div>
+        </div>
+      </div>
+      <div class="bills">
+        <button>THANH TOÁN</button>
+        <h3>TÓM TẮT ĐƠN HÀNG</h3>
+        <div class="product-price">
+          <p><span id="cartCheck"> </span> các sản phẩm</p>
+
+          <p id="total">0đ</p>
+        </div>
+        <div class="product-ship">
+          <p>Giao hàng</p>
+          <p>Miễn phí</p>
+        </div>
+        <div class="total">
+          <b>Tổng</b>
+          <b id="total">0đ</b>
+        </div>
+        <p style="color: #767677">
+          (Đã bao gồm thuế <span id="taxes"></span> )
+        </p>
+        <p>PHƯƠNG THỨC THANH TOÁN ĐƯỢC CHẤP NHẬN</p>
+        <div>
+          <img
+            src="../asset/images/payment/icon-adidas-cash_on_delivery.svg"
+            alt=""
+          />
+          <img
+            src="../asset/images/payment/icon-adidas-mastercard.svg"
+            alt=""
+          />
+          <img src="../asset/images/payment/icon-adidas-visa.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="../js/checkout.js"></script>
   </body>
 </html>

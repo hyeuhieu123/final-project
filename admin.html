@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>admin</title>
-    <link rel="stylesheet" href="../style/admin.css" />
+    <link rel="stylesheet" href="style/admin.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -26,7 +26,9 @@
         <h1>hello</h1>
       </div>
     </nav>
+
     <!--product  -->
+    <h1>users</h1>
     <table>
       <tr>
         <th>STT</th>
@@ -38,7 +40,8 @@
         <tbody id="table1"></tbody>
       </tr>
     </table>
-
+    <h1>products</h1>
+    <input id="searchInput" onkeyup="search() " />
     <table>
       <tr>
         <th>STT</th>
@@ -46,6 +49,7 @@
         <th>Name</th>
         <th>Img</th>
         <th>Price</th>
+        <th>edit</th>
       </tr>
       <tr>
         <tbody id="table2">
@@ -53,6 +57,6 @@
         </tbody>
       </tr>
     </table>
-    <script src="../js/admin.js"></script>
+    <script src="js/admin.js"></script>
   </body>
 </html>
