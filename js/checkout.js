@@ -33,7 +33,11 @@ function cartCheck() {
       taxesEl.innerHTML = `${taxes}	`;
     }
   } else {
-    cartCheckel[0].innerHTML = "GIỎ HÀNG CỦA BẠN TRỐNG";
+    for (let i = 0; i < 3; i++) {
+      cartCheckel[i].innerHTML = "GIỎ HÀNG CỦA BẠN TRỐNG";
+      totalEl[i].innerHTML = "";
+      taxesEl.innerHTML = "";
+    }
   }
 }
 function logOut() {
@@ -71,21 +75,48 @@ function renderCart() {
   for (let i = 0; i < users.length; i++) {
     if (users[i].id === checkLogin) {
       for (let j = 0; j < users[i].cart.length; j++) {
-        cartHtml += `<div class="cart-item">
-        <div class="image">
-          <img src="../${users[i].cart[j].img}" alt="" />
-        </div>
-        <div class="info">
-          <div class="title">
-            <p>${users[i].cart[j].name}</p>
-            <p>${users[i].cart[j].price}</p>
+        cartHtml += `
+          <div class="cart-item">
+          <div class="image">
+            <img src="../${users[i].cart[j].img}" alt="" />
           </div>
-          <b>MẶT HÀNG CÓ SẴN MỚI NHẤT</b>
-        </div>
-      </div>`;
-        console.log(users[i].cart[j]);
+          <div class="info">
+            <div class="title">
+              <p>${users[i].cart[j].name}</p>
+              <p>${(users[i].cart[j].price / 1000).toFixed(3)}.000đ</p>
+              
+            </div>
+          <select id="quantitySelect">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" >3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          </select>
+          </div>
+          <div class="deleteBtn" onclick="deleteCart(${users[i].cart[j].id})">
+          <button>X</button>
+          </div>
+        
+        </div>`;
+        // console.log(users[i].cart[j]);
       }
     }
   }
   cartEl.innerHTML = cartHtml;
+}
+// console.log(document.getElementById("quantitySelect").value);
+
+function deleteCart(productId) {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id === checkLogin) {
+      users[i].cart = users[i].cart.filter((product) => {
+        return product.id !== productId;
+      });
+      console.log(users[i].cart);
+      localStorage.setItem("users", JSON.stringify(users));
+      cartCheck();
+      renderCart();
+    }
+  }
 }

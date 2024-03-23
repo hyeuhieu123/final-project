@@ -350,7 +350,7 @@ nav .user .dropdown {
   padding: 100px;
   justify-content: center;
   border: 1px solid;
-  gap: 200px;
+  gap: 230px;
 }
 .cart-container .cart,
 .cart-container .bills {
@@ -363,13 +363,21 @@ nav .user .dropdown {
   margin: 20px 0;
   border: 1px solid;
   width: 130%;
+  position: relative;
 }
 .cart-container .cart .cart-item .info {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  justify-content: space-between;
+  padding: 30px 50px 30px 30px;
   width: 100%;
 }
+.cart-container .cart .cart-item .info select {
+  width: 30%;
+  padding: 15px 10px;
+  font-weight: bolder;
+}
+
 .cart-container .cart .cart-item .info .title {
   display: flex;
 
@@ -380,7 +388,7 @@ nav .user .dropdown {
 }
 .cart-container .cart .cart-item .image img {
   height: 100%;
-  /* object-fit: cover; */
+  object-fit: cover;
 }
 .cart-container .bills button {
   padding: 1rem;
@@ -399,4 +407,15 @@ nav .user .dropdown {
 .cart-container .bills .total {
   display: flex;
   justify-content: space-between;
+}
+.cart-container .cart .cart-item .deleteBtn {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+}
+.cart-container .cart .cart-item .deleteBtn button {
+  background-color: transparent;
+  padding: 10px;
+  border: none;
+  font-size: larger;
 }

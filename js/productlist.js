@@ -44,7 +44,7 @@ const productsData = [
   {
     id: Math.ceil(Math.random() * 10000),
     img: "asset/images/trending/8.jpg",
-    price: 800,
+    price: 1000,
     name: "Áo Thun Ba Lá Essentials",
     status: "trending",
   },
