@@ -348,8 +348,9 @@ nav .user .dropdown {
 .cart-container {
   display: flex;
   padding: 100px;
-  justify-content: space-between;
+  justify-content: center;
   border: 1px solid;
+  gap: 200px;
 }
 .cart-container .cart,
 .cart-container .bills {
