@@ -33,7 +33,7 @@ function cartCheck() {
       taxesEl.innerHTML = `${taxes}	`;
     }
   } else {
-    cartCheck[0].innerHTML = "GIỎ HÀNG CỦA BẠN TRỐNG";
+    cartCheckel[0].innerHTML = "GIỎ HÀNG CỦA BẠN TRỐNG";
   }
 }
 function logOut() {
@@ -62,6 +62,30 @@ function userCheck() {
 		  <button id="registerButton"><a href="./pages/register.html">Đăng ký</a></button>`;
   }
   cartCheck();
+  renderCart();
 }
 userCheck();
-function renderCart() {}
+function renderCart() {
+  const cartEl = document.querySelector(".cart-display");
+  let cartHtml = "";
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id === checkLogin) {
+      for (let j = 0; j < users[i].cart.length; j++) {
+        cartHtml += `<div class="cart-item">
+        <div class="image">
+          <img src="../${users[i].cart[j].img}" alt="" />
+        </div>
+        <div class="info">
+          <div class="title">
+            <p>${users[i].cart[j].name}</p>
+            <p>${users[i].cart[j].price}</p>
+          </div>
+          <b>MẶT HÀNG CÓ SẴN MỚI NHẤT</b>
+        </div>
+      </div>`;
+        console.log(users[i].cart[j]);
+      }
+    }
+  }
+  cartEl.innerHTML = cartHtml;
+}
