@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>admin</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="style/admin.css" />
     <link
       rel="stylesheet"
@@ -14,49 +14,34 @@
     />
   </head>
   <body>
-    <nav>
-      <div class="logo">
-        <img
-          src="../asset/images/kisspng-adidas-originals-logo-three-stripes-brand-5af81ac3bd8a87.0027690115262092197764.png"
-          alt=""
-        />
+    <div class="main">
+      <div class="sidebar">
+        <div>
+          <img
+            src="asset/images/kisspng-adidas-originals-logo-three-stripes-brand-5af81ac3bd8a87.0027690115262092197764.png"
+            alt=""
+            height="100px"
+          />
+        </div>
+        <ul>
+          <li>
+            <i class="fa-solid fa-user"></i>
+            <button id="showUsers" onclick="tableRenderUsers()">Users</button>
+          </li>
+          <li>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <button id="showProducts" onclick="tableRenderProducts()">
+              Products
+            </button>
+          </li>
+        </ul>
       </div>
-      <div>
-        <i class="fa-regular fa-user fa-xl"></i>
-        <h1>hello</h1>
+      <div class="main_content">
+        <table id="table1"></table>
+        <table id="table2"></table>
       </div>
-    </nav>
+    </div>
 
-    <!--product  -->
-    <h1>users</h1>
-    <table>
-      <tr>
-        <th>STT</th>
-        <th>ID</th>
-        <th>Họ và tên</th>
-        <th>Email</th>
-      </tr>
-      <tr>
-        <tbody id="table1"></tbody>
-      </tr>
-    </table>
-    <h1>products</h1>
-    <input id="searchInput" onkeyup="search() " />
-    <table>
-      <tr>
-        <th>STT</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Img</th>
-        <th>Price</th>
-        <th>edit</th>
-      </tr>
-      <tr>
-        <tbody id="table2">
-          <td><img src="../asset/images/arrival/1.jpg" alt="" /></td>
-        </tbody>
-      </tr>
-    </table>
     <script src="js/admin.js"></script>
   </body>
 </html>

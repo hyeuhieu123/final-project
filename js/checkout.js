@@ -22,7 +22,7 @@ function cartCheck() {
   } else {
     taxes = `${(((total / 1000) * 7.47074) / 100).toFixed(3)}.000đ`;
   }
-  console.log(total);
+  // console.log(total);
 
   //   console.log(((total * 7.4074) / 100).toFixed(3));
 
@@ -72,48 +72,70 @@ userCheck();
 function renderCart() {
   const cartEl = document.querySelector(".cart-display");
   let cartHtml = "";
+
   for (let i = 0; i < users.length; i++) {
     if (users[i].id === checkLogin) {
       for (let j = 0; j < users[i].cart.length; j++) {
+        const product = users[i].cart[j];
+        const options = [];
+
+        // Tạo tùy chọn cho số lượng sản phẩm
+        for (let k = 1; k < 10; k++) {
+          // console.log(quantity);
+          const select = k == product.quantity ? "selected" : "";
+          options.push(`<option value="${k}" ${select}>${k}</option>`);
+        }
+
         cartHtml += `
           <div class="cart-item">
-          <div class="image">
-            <img src="../${users[i].cart[j].img}" alt="" />
-          </div>
-          <div class="info">
-            <div class="title">
-              <p>${users[i].cart[j].name}</p>
-              <p>${(users[i].cart[j].price / 1000).toFixed(3)}.000đ</p>
-              
+            <div class="image">
+              <img src="../${product.img}" alt="" />
             </div>
-          <select id="quantitySelect">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3" >3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          </select>
+            <div class="info">
+              <div class="title">
+                <p>${product.name}</p>
+                <p>${(product.price / 1000).toFixed(3)}.000đ</p>
+              </div>
+              <select  onchange="changeSelect(${product.id}, this.value)">
+                ${options}
+              </select>
+            </div>
+            <div class="deleteBtn" onclick="deleteCart(${product.id})">
+              <button>X</button>
+            </div>
           </div>
-          <div class="deleteBtn" onclick="deleteCart(${users[i].cart[j].id})">
-          <button>X</button>
-          </div>
-        
-        </div>`;
-        // console.log(users[i].cart[j]);
+        `;
+        // console.log(options);
       }
     }
   }
+
   cartEl.innerHTML = cartHtml;
 }
-// console.log(document.getElementById("quantitySelect").value);
 
+function changeSelect(productId, newQuantity) {
+  console.log(newQuantity);
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id === checkLogin) {
+      for (let j = 0; j < users[i].cart.length; j++) {
+        if (users[i].cart[j].id === productId) {
+          users[i].cart[j].quantity = newQuantity;
+        }
+      }
+    }
+  }
+
+  localStorage.setItem("users", JSON.stringify(users));
+
+  location.reload();
+}
 function deleteCart(productId) {
   for (let i = 0; i < users.length; i++) {
     if (users[i].id === checkLogin) {
       users[i].cart = users[i].cart.filter((product) => {
         return product.id !== productId;
       });
-      console.log(users[i].cart);
+
       localStorage.setItem("users", JSON.stringify(users));
       cartCheck();
       renderCart();

@@ -145,7 +145,7 @@ function renderProducts(products) {
       <div onClick="addToCart(${products[i].id})" class="product-item">
         <div class="image">
           <img src="${products[i].img}" alt="" />
-          <p class="price">${products[i].price}</p>
+          <p class="price">${(products[i].price / 1000).toFixed(3)}.000đ</p>
         </div>
         <p>${products[i].name}</p> 
       </div>`;

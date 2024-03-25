@@ -69,6 +69,7 @@ localStorage.setItem("users", JSON.stringify(users));
 const products = JSON.parse(localStorage.getItem("products"));
 
 cartCheck();
+
 function addToCart(productId) {
   const products = JSON.parse(localStorage.getItem("products"));
 
@@ -109,7 +110,11 @@ function addToCart(productId) {
       }
     }
   }
-
+  document.querySelector("#nofi").classList.add("nofi");
+  setTimeout(() => {
+    document.querySelector("#nofi").classList.remove("nofi");
+    ` `;
+  }, 2000);
   cartCheck();
 }
 

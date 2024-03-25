@@ -8,28 +8,38 @@ th,
 td {
   border: 1px solid;
   text-align: center;
+  width: 10%;
 }
 
 table {
   width: 100%;
 }
+a {
+  text-decoration: none;
+}
 li {
   list-style: none;
 }
-nav {
+.main {
   display: flex;
-
-  justify-content: space-between;
-  align-items: end;
-  padding: 0 100px;
-
-  /* position: fixed; */
-  right: 0;
-  left: 0;
+  position: relative;
 }
-nav .logo img {
-  height: 100px;
+
+.main .sidebar {
+  width: 200px;
+  height: 100%;
+
+  padding: 30px 0px;
+  position: fixed;
 }
+.main .sidebar ul li {
+  padding: 15px;
+}
+.main .main_content {
+  width: 100%;
+  margin-left: 200px;
+}
+
 #table2 img {
   height: 200px;
 
