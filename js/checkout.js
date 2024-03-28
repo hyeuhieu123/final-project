@@ -15,6 +15,7 @@ function cartCheck() {
         cartQuantity += users[i].cart[j].quantity;
         total += users[i].cart[j].price * users[i].cart[j].quantity;
       }
+      console.log(cartQuantity);
     }
   }
   if (total < 10000) {
@@ -77,27 +78,26 @@ function renderCart() {
     if (users[i].id === checkLogin) {
       for (let j = 0; j < users[i].cart.length; j++) {
         const product = users[i].cart[j];
-        const options = [];
-
-        // Tạo tùy chọn cho số lượng sản phẩm
+        const option = [];
         for (let k = 1; k < 10; k++) {
-          // console.log(quantity);
-          const select = k == product.quantity ? "selected" : "";
-          options.push(`<option value="${k}" ${select}>${k}</option>`);
+          let select = k == product.quantity ? "selected" : "";
+          option.push(`<option value="${k}" ${select}>${k}</option>`);
         }
 
         cartHtml += `
           <div class="cart-item">
             <div class="image">
-              <img src="../${product.img}" alt="" />
+              <img src=${product.image} alt="" />
             </div>
             <div class="info">
               <div class="title">
                 <p>${product.name}</p>
                 <p>${(product.price / 1000).toFixed(3)}.000đ</p>
               </div>
-              <select  onchange="changeSelect(${product.id}, this.value)">
-                ${options}
+              <select id="selectAt${product.id}" onchange="changeSelect(${
+          product.id
+        })">
+                ${option}
               </select>
             </div>
             <div class="deleteBtn" onclick="deleteCart(${product.id})">
@@ -105,7 +105,6 @@ function renderCart() {
             </div>
           </div>
         `;
-        // console.log(options);
       }
     }
   }
@@ -113,21 +112,23 @@ function renderCart() {
   cartEl.innerHTML = cartHtml;
 }
 
-function changeSelect(productId, newQuantity) {
-  console.log(newQuantity);
+function changeSelect(productId) {
+  const newQuantity = document.getElementById(`selectAt${productId}`).value;
+  console.log(parseInt(newQuantity));
+  let cartQuantity = 0;
   for (let i = 0; i < users.length; i++) {
     if (users[i].id === checkLogin) {
       for (let j = 0; j < users[i].cart.length; j++) {
         if (users[i].cart[j].id === productId) {
-          users[i].cart[j].quantity = newQuantity;
+          users[i].cart[j].quantity = parseInt(newQuantity);
         }
       }
     }
   }
 
   localStorage.setItem("users", JSON.stringify(users));
-
-  location.reload();
+  cartCheck();
+  renderCart();
 }
 function deleteCart(productId) {
   for (let i = 0; i < users.length; i++) {

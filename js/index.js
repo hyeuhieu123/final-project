@@ -94,6 +94,7 @@ function addToCart(productId) {
       for (let j = 0; j < products.length; j++) {
         if (productId == products[j].id) {
           let checkProduct = true;
+
           for (let k = 0; k < users[i].cart.length; k++) {
             if (productId === users[i].cart[k].id) {
               users[i].cart[k].quantity += 1;
@@ -137,7 +138,7 @@ function cartCheck() {
   }
   return cartQuantity;
 }
-console.log(cartCheck());
+// console.log(cartCheck());
 // cartCheck();
 
 // const loginElement = document.getElementById("login");

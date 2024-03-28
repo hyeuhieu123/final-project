@@ -113,7 +113,7 @@ header .banner .button button {
   height: 100%;
   padding-bottom: 20px;
   margin-top: 20px;
-  border: 1px solid black;
+  border: 1px solid gray;
   cursor: pointer;
 }
 
@@ -206,6 +206,7 @@ header .banner .button button {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .text-container .text {
   display: flex;
@@ -368,7 +369,8 @@ nav .user .dropdown {
   /* padding: 10px; */
   font-weight: bolder;
   font-size: larger;
-  padding: 15px 10px;
+  padding: 15px 0;
+  width: 80px;
 }
 
 .cart-container .cart .cart-item .info .title {
@@ -418,7 +420,7 @@ nav .user .dropdown {
   bottom: 10%;
 
   right: 10%;
-  background-color: rgb(165, 224, 76);
+  background-color: rgb(192, 233, 157);
   color: green;
   padding: 20px;
   z-index: 10;
