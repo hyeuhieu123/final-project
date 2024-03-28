@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 table,
 th,
 td {
@@ -17,6 +18,8 @@ table {
 }
 form {
   margin-bottom: 40px;
+  background-color: white;
+  border-radius: 50px;
 }
 a {
   text-decoration: none;
@@ -27,6 +30,7 @@ li {
 .main {
   display: flex;
   position: relative;
+  height: 100%;
 }
 
 .main .sidebar {
@@ -63,11 +67,11 @@ li {
 }
 .main .main_content {
   width: 100%;
-  padding: 50px;
+  height: 100%;
+  padding: 40px;
   margin-left: 200px;
   z-index: 1;
   background-color: #e7e7e3;
-  height: 1000px;
 }
 
 #table2 img {
@@ -97,7 +101,7 @@ li {
   /* border: 1px solid; */
   position: relative;
   display: flex;
-  width: 400px;
+  width: 350px;
   border-radius: 20px;
   padding: 20px;
   background-color: white;
@@ -108,6 +112,11 @@ li {
 }
 .product-container .product-item .info p {
   margin-bottom: 10px;
+  opacity: 0.6;
+}
+.product-container .product-item .info h3 {
+  display: inline-block;
+  width: 200px;
 }
 .product-container .product-item .image {
   height: 100px;
@@ -118,5 +127,6 @@ li {
 }
 .product-container .product-item button {
   position: absolute;
-  right: 10%;
+  right: 5%;
+  top: 10%;
 }

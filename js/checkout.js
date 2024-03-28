@@ -15,7 +15,6 @@ function cartCheck() {
         cartQuantity += users[i].cart[j].quantity;
         total += users[i].cart[j].price * users[i].cart[j].quantity;
       }
-      console.log(cartQuantity);
     }
   }
   if (total < 10000) {
@@ -87,7 +86,7 @@ function renderCart() {
         cartHtml += `
           <div class="cart-item">
             <div class="image">
-              <img src=${product.image} alt="" />
+            <img src= ../${product.image} alt="" />
             </div>
             <div class="info">
               <div class="title">

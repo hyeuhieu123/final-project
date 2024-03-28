@@ -1,23 +1,23 @@
 const slideshow1 = [
   {
     img: "asset/images/slideshow1/1.jpg",
-    title: "SuperComfort. Supernova.",
+    title: "Samba",
     info: "Tiến xa hơn với dòng giày hiking thoải mái nhất từ trước đến nay.",
   },
   {
     img: "asset/images/slideshow1/2.jpg",
-    title: "TOUR360",
-    info: "Giày golf TOUR360 với công nghệ đời mới.",
+    title: "GAZELLE",
+    info: "Một thiết kế kinh điển đích thực với một di sản dài lâu.",
   },
   {
     img: "asset/images/slideshow1/3.jpg",
-    title: "Nhà vô địch Tokyo",
-    info: "Benson Kipruto đã định nghĩa lại thế nào là nhanh tại Adizero.",
+    title: "Spezial",
+    info: "Một  phong cách thời trang lại vừa thời thượng .",
   },
   {
     img: "asset/images/slideshow1/4.jpg",
-    title: "SONG FOR THE MUTE",
-    info: "Discover the new collection evoking future nostalgia.",
+    title: "SL 72",
+    info: "Phong cách kinh điển thập niên 70 dành cho Originals trên toàn thế giới.",
   },
 ];
 
@@ -50,7 +50,7 @@ function prev() {
 function autoslideshow() {
   setInterval(() => {
     prev();
-  }, 1500);
+  }, 2500);
 }
 
 render();

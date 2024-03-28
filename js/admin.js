@@ -1,11 +1,147 @@
 let main_content = document.querySelector(".main_content");
 let users = JSON.parse(localStorage.getItem("users")) || [];
-let products = JSON.parse(localStorage.getItem("products")) || [];
+let products = JSON.parse(localStorage.getItem("products")) || [
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/2.jpg",
+    price: 2500,
+    name: "GAZELLE",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/3.jpg",
+    price: 3000,
+    name: "STAN SMITH",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/4.jpg",
+    price: 3000,
+    name: "STAN SMITH",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/5.jpg",
+    price: 2500,
+    name: "GAZELLE",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/6.jpg",
+    price: 2600,
+    name: "Giày Adiform	Climacool",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/7.jpg",
+    price: 3900,
+    name: "NMD_R1 W",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/8.jpg",
+    price: 1000,
+    name: "Áo Thun Ba Lá Essentials",
+    category: "quan-ao",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/trending/9.jpg",
+    price: 1100,
+    category: "quan-ao",
+    name: "MONO TEE",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/1.jpg",
+    price: 2400,
+    name: "Giày bóng rổ AE 1 Velocity xanh",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/2.jpg",
+    price: 3100,
+    name: "Áo sân nhà Mexico 2024",
+    category: "quan-ao",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/3.jpg",
+    price: 3500,
+    name: "Giày bóng rổ Harden Volume 8",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/4.jpg",
+    price: 3100,
+    name: "Giày Samba OG",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/5.jpg",
+    price: 2100,
+    name: "Mexico 24 Away Jersey",
+    category: "quan-ao",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/6.jpg",
+    price: 2100,
+    name: "Mexico 24 Home Jersey",
+    category: "quan-ao",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/7.jpg",
+    price: 3100,
+    name: "Áo xanh nhà Argentina 2024",
+    category: "quan-ao",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/8.jpg",
+    price: 3300,
+    name: "Giày Top Ten 2000 ESPN",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/9.jpg",
+    price: 2600,
+    name: "Áo sân nhà Argentina 24 Messi",
+    category: "quan-ao",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/10.jpg",
+    price: 2400,
+    name: "Giày Sambae x KSENIASCHANDER",
+    category: "giay",
+  },
+  {
+    id: Math.ceil(Math.random() * 10000),
+    image: "asset/images/arrival/11.jpg",
+    price: 3800,
+    name: "Áo sân nhà Argentina 24 Messi dài tay",
+    category: "quan-ao",
+  },
+];
+
 let category = JSON.parse(localStorage.getItem("category")) || [
   { id: 123, name: "áo" },
   { id: 321, name: "quần" },
 ];
 localStorage.setItem("category", JSON.stringify(category));
+localStorage.setItem("products", JSON.stringify(products));
 function displayUser() {
   main_content.innerHTML = `
     
@@ -23,6 +159,9 @@ function displayUser() {
     </table>
    `;
   renderUser();
+  document.getElementById("1").classList.add("clickSidebar");
+  document.getElementById("2").classList.remove("clickSidebar");
+  document.getElementById("3").classList.remove("clickSidebar");
 }
 function renderUser() {
   const tableUser = document.querySelector("#usertable");
@@ -63,8 +202,9 @@ function displayCategory() {
       <tbody></tbody>
     </table>
    `;
-  document.getElementById("1").classList.add("clickSidebar");
-  document.getElementById("2").classList.remove("clickSidebar");
+  document.getElementById("1").classList.remove("clickSidebar");
+  document.getElementById("2").classList.add("clickSidebar");
+  document.getElementById("3").classList.remove("clickSidebar");
 
   renderCategory();
 
@@ -160,8 +300,9 @@ function displayProduct() {
     </form>
     <div class="product-container"></div>
    `;
-  document.getElementById("2").classList.add("clickSidebar");
   document.getElementById("1").classList.remove("clickSidebar");
+  document.getElementById("2").classList.remove("clickSidebar");
+  document.getElementById("3").classList.add("clickSidebar");
 
   renderProduct();
 
@@ -179,7 +320,7 @@ function displayProduct() {
         const imgDataURL = reader.result;
         const selectedCategory = category.find(
           (value) => value.id == categoryProduct
-        );
+        ).name;
         const newProduct = {
           id: Math.ceil(Math.random() * 1000000),
           name: nameProduct,
@@ -220,11 +361,12 @@ function renderProduct() {
           <img src=${products[i].image} alt="" />
         </div>
         <div class="info">
-          <h2>${products[i].name}</h2>
-          <p>${products[i].category.name}</p> <!-- Use category name -->
+          <h3>${products[i].name}</h3>
+          <p>${products[i].category}</p> <!-- Use category name -->
           <b>${(products[i].price / 1000).toFixed(3)}.000đ</b>
           </div>
           <button onclick="deleteProduct(${products[i].id})">X</button>
+
          
       </div>`;
   }
